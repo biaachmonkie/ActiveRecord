@@ -107,28 +107,31 @@ Please check the stacktrace and change your code accordingly.", ex.Message);
 			}
 		}
 
-		[Test]
-		public void Get_with_nonlazy_classes_does_not_work()
-		{
-			Initialize();
+        //[Test]
+        //[Ignore("This was fixed. Issue NH-2670 Version 3.2.0GA")]
+        //public void Get_with_nonlazy_classes_does_not_work()
+        //{
+        //    Initialize();
 
-			using (new SessionScope())
-				new Blog { Author = "Mort", Name = "Hourglass" }.Create();
+        //    using (new SessionScope())
+        //    {
+        //        new Blog { Author = "Mort", Name = "Hourglass" }.Create();
+        //    }
 
-			using (new StatelessSessionScope())
-			{
-				try
-				{
-					Blog.Find(1);
-					Assert.Fail();
-				}
-				catch (ActiveRecordException ex)
-				{
-					Assert.AreEqual(typeof(SessionException), ex.InnerException.GetType());
-					Assert.AreEqual("collections cannot be fetched by a stateless session", ex.InnerException.Message);
-				}
-			}
-		}
+        //    using (new StatelessSessionScope())
+        //    {
+        //        try
+        //        {
+        //            var blog = Blog.Find(1);
+        //            Assert.Fail();
+        //        }
+        //        catch (ActiveRecordException ex)
+        //        {
+        //            Assert.AreEqual(typeof(SessionException), ex.InnerException.GetType());
+        //            Assert.AreEqual("collections cannot be fetched by a stateless session", ex.InnerException.Message);
+        //        }
+        //    }
+        //}
 
 		[Test]
 		public void Updating_stateless_fetched_entities_works()

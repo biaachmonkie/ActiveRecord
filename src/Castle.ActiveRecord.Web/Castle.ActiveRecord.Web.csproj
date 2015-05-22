@@ -102,10 +102,9 @@
     <Compile Include="Framework\Scopes\HybridWebThreadScopeInfo.cs" />
     <Compile Include="Framework\Scopes\WebThreadScopeInfo.cs" />
     <Compile Include="Framework\SessionScopeWebModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
